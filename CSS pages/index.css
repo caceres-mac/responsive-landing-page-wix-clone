@@ -1,0 +1,9 @@
+/*CONTIENE LOS ELEMENTOS EXCLUSIVOS DE INDEX*/
+
+/*SELECTOR DE HERMANOS*/
+article h3 ~ p {
+  text-align: justify;
+  color: #35e6ab;
+  font-family: 'Raleway', sans-serif;
+  margin-top: 10px;
+}
