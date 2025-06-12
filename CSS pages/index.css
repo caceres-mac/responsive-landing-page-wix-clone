@@ -1,11 +1,19 @@
-/* Reset */
+/* Configuracion general*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* NAVBAR */
+/* BODY PADDING TOP PARA NO OCULTAR CONTENIDO DEBIDO AL HEADER FIJO */
+body {
+  font-family: 'Raleway', sans-serif;
+  padding-top: 80px; /* Igual a la altura del header */
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* BARRA DE NAVEGACION */
 .navbar {
   position: fixed;
   top: 0;
@@ -13,16 +21,21 @@
   background-color: white;
   height: 80px;
   border-bottom: 1px solid #ccc;
-  z-index: 999;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
 }
 
 .logo {
   float: left;
-  padding: 10px 20px;
+  padding: 0px 20px;
+  height: 80px;
 }
-
 .logo img {
-  height: 60px
+  max-height: 100%;
+  height: auto;
 }
 
 .navmenu {
@@ -46,12 +59,19 @@
   padding: 10px;
 }
 
+.navmenu div strong {
+      color: #a73e3e;
+}
 .navmenu a:hover {
-  background-color: #f0f0f0;
-  border-radius: 5px;
+  background-color: #eee;
+  border-radius: 6px;
 }
 
 /* DROPDOWN */
+.dropdown:hover .d_box {
+  display: block;
+}
+
 .d_box {
   display: none;
   position: absolute;
@@ -63,7 +83,6 @@
   border: 1px solid #ccc;
   z-index: 1000;
 }
-
 .d_box a {
   display: block;
   padding: 5px 0;
@@ -79,6 +98,7 @@
   display: block;
 }
 
+/* CARRUSEL */
 .home-carousel {
   width: 100%;
   height: 100vh;
@@ -89,43 +109,240 @@
 .swiper {
   width: 100%;
   height: 100%;
+  position: relative;
+}
+
+.swiper-wrapper {
+
 }
 
 .swiper-slide {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block; /* Para que cada slide ocupe todo el ancho */
+  width: 100% !important; /* Forzamos que cada slide sea ancho 100% */
+  height: 100%;
 }
 
 .swiper-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
+/* Título fijo superpuesto */
+.carousel-text-overlay {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 10;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  margin: 0;
+  text-align: left;
+  width: auto;
+}
+
+/* Caption dentro de cada slide */
 .slide-caption {
   position: absolute;
-  bottom: 10%;
-  left: 5%;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
   color: white;
-  font-size: 2rem;
-  font-weight: bold;
-  background-color: rgba(0, 0, 0, 0.4);
-  padding: 10px 20px;
+  background-color: rgba(0,0,0,0.4);
+  padding: 15px 25px;
   border-radius: 10px;
+  max-width: 70%;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
 }
 
+.slide-caption h2.titulo-principal {
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 0.5em;
+  font-family: 'Raleway', sans-serif;
+}
+
+.slide-caption p.subtitulo {
+  font-family: 'Lora', serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/*para que no tape la navbar fija */
 body {
   padding-top: 80px;
 }
 
+/* CONTROLES SWIPER */
+.swiper-button-next,
+.swiper-button-prev {
+  color: white;
+  filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.7));
+  width: 44px;
+  height: 44px;
+}
+
+.swiper-pagination-bullet {
+  background: white;
+  opacity: 0.8;
+}
+
+.swiper-pagination-bullet-active {
+  background: #ffd700;
+  opacity: 1;
+}
+
+/*seccion promos*/
+
+.seccion-promos {
+  width: 100%;
+  height: 120px;
+  background-color: #f0f0f0;
+  display: block;
+  text-align: center;
+  padding-top: 40px;
+  box-sizing: border-box;
+}
+
+/*galeria de tarjetas*/
+.galeria-tarjetas {
+  white-space: nowrap;
+  margin-top: 20px;
+}
+
+.tarjeta {
+  display: inline-block;
+  width: 250px;
+  height: 300px;
+  margin-right: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-image: url('tu-imagen.jpg'); /* Cambiá por tu imagen */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  color: white;
+}
+
+.fondo-opaco {
+  background-color: rgba(0, 0, 0, 0.5); /* capa oscura encima */
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.contenido {
+  position: relative;
+  height: 100%;
+  padding: 10%;
+}
+
+.titulo {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 0 8px 0;
+  font-weight: bold;
+  margin-bottom: 6px;
+  white-space: normal; /* Ya está bien */
+  overflow-wrap: break-word; /* Para cortar palabras si es necesario */
+}
 
 
-/*SELECTOR DE HERMANOS*/
-article h3 ~ p {
-  text-align: justify;
-  color: #35e6ab;
-  font-family: 'Raleway', sans-serif;
-  margin-top: 10px;
+.descripcion {
+  font-size: 14px;
+  line-height: 1.4;
+  white-space: normal;            /* ← esto permite el salto de línea */
+  overflow-wrap: break-word;     /* ← esto rompe las palabras largas */
+  overflow: hidden;              /* ← si querés que no se desborde */
+  text-overflow: ellipsis;       /* ← opcional si querés los "..." */
+  display: -webkit-box;
+  -webkit-line-clamp: 5;         /* ← limita a 5 líneas (podés ajustar) */
+  -webkit-box-orient: vertical;
+}
+
+.btn-reservar {
+  background-color: #35e6ab;
+  color: #000;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+
+  display: inline-block;
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+}
+.btn-reservar:hover {
+  background-color: #28b88e;
+}
+
+
+/* FOOTER*/
+footer {
+  background-color: #222;
+  color: #eee;
+  padding: 30px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 25px;
+}
+
+footer div {
+  flex: 1 1 200px;
+  max-width: 300px;
+}
+
+footer img {
+  height: 50px;
+}
+
+footer a {
+  color: #ffd700;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* MENSAJE CONTACTO FLOTANTE */
+.boton-whatsapp {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 10000;
+  display: block;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.boton-whatsapp img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.boton-whatsapp:hover {
+  transform: scale(1.1);
 }

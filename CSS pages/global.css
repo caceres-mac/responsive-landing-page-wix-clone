@@ -1,5 +1,103 @@
        /* CONTIENE TODOS LOS ESTILOS DE LOS ELEMENTOS QUE SE REPITEN EN TODAS LAS PAGINAS*/
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+/* BODY PADDING TOP PARA NO OCULTAR CONTENIDO DEBIDO AL HEADER FIJO */
+body {
+  font-family: 'Raleway', sans-serif;
+  padding-top: 80px; /* Igual a la altura del header */
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  height: 80px;
+  border-bottom: 1px solid #ccc;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.logo {
+  float: left;
+  padding: 0px 20px;
+  height: 80px;
+}
+.logo img {
+  max-height: 100%;
+  height: auto;
+}
+
+.navmenu {
+  list-style: none;
+  float: right;
+  margin-right: 30px;
+  height: 80px;
+  line-height: 80px;
+}
+
+.navmenu li {
+  display: inline-block;
+  position: relative;
+  margin-left: 20px;
+}
+
+.navmenu a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.navmenu div strong {
+      color: #a73e3e;
+}
+.navmenu a:hover {
+  background-color: #eee;
+  border-radius: 6px;
+}
+
+/* DROPDOWN */
+.dropdown:hover .d_box {
+  display: block;
+}
+
+.d_box {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  padding: 10px;
+  min-width: 220px;
+  border: 1px solid #ccc;
+  z-index: 1000;
+}
+.d_box a {
+  display: block;
+  padding: 5px 0;
+  color: black;
+  text-decoration: none;
+}
+
+.d_box a:hover {
+  background-color: #eee;
+}
+
+.dropdown:hover .d_box {
+  display: block;
+}
        /*ESTILOS DE COLOR, FONDO Y FUENTE DE BODY*/
        body {
             color: #d0b3ad;
@@ -35,3 +133,27 @@
                   color: #00ffcc;
                   text-decoration: underline;
                 }
+
+/* MENSAJE CONTACTO FLOTANTE */
+.boton-whatsapp {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 10000;
+  display: block;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.boton-whatsapp img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.boton-whatsapp:hover {
+  transform: scale(1.1);
+}
